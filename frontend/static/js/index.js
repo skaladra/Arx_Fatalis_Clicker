@@ -1,7 +1,18 @@
 window.onload = function () {
     setAutoClick()
     set_all_boosts_availability()
+    var audio = document.getElementById('audio');
+    audio.src = 'static/audio/loginhuman.mp3';
+    document.body.addEventListener("mousemove", function () {
+        audio.play()
+        audio.onended = function() {
+            audio.setAttribute('loop', 'true');
+            audio.src = 'static/audio/soundtrack.mp3';
+            audio.play()
+        }
+    })
 }
+
 
 function setAutoClick() {
     setInterval(function() {
