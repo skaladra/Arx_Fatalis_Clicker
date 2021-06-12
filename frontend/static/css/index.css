@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.click-container {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.boosts-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.flex-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.click_count {
+    color: red;
+}
+
+.boosts-holder {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.boost {
+    width: 110px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('../imgs/boost1.png');
+    background-size: 100%;
+    color:white;
+}
+.boost p {
+    margin: 0;
+    padding: 0;
+}
+
+.auto {
+    background: rebeccapurple;
+    background-image: url('../imgs/boost3.png');
+    background-size: 100%;
+    color: white;
+}
+
+.auto:disabled {
+    color: slategray;
+}
+
+.click-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    width: fit-content;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.click-container img {
+    transition: all .05s ease;
+}
+
+.container {
+    color:white;
+}

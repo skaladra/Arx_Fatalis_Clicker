@@ -1,0 +1,68 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kashi Clicker</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="icon" href="{% static 'imgs/icon.png' %}">
+    <script src="{% static 'js/index.js' %}"></script>
+</head>
+<body>
+    <main class="container">
+        <audio autoplay loop>
+            <source src="{% static 'audio/soundtrack.mp3'%}" type="audio/mpeg">
+            <source src="{% static 'audio/soundtrack.oga'%}" type="audio/ogg">
+          </audio>
+        <aside class="menu-container">
+            <h1>{{ user.username }}</h1>
+            <a href="{% url 'logout' %}">logout</a>
+        </aside>
+        <div class="click-container">
+            <p class="click_count">
+                Coins: <span id="counter">{{ maincycle.click_count }}</span>
+            </p>
+            <button class="click-holder" onclick="call_click()">
+                <img id="click-img" src="{% static 'imgs/bulka.png' %}">
+            </button>
+
+            <p>
+                Power: <span id="click_power">{{ maincycle.click_power }}</span>
+            </p>
+            <p>
+                AutoPower: +<span id="auto_click_power">{{ maincycle.auto_click_power }}</span>/s
+            </p>
+        </div>
+        <aside class="boosts-container">
+            <h3>BOOSTS</h3>
+            <div class="boosts-holder" id="boosts-holder">
+                {% for boost in boosts %}
+                    {% if boost.boost_type == 0 %}
+                        <button class="boost" onclick="buy_boost({{boost.id}})">
+                            <p>lvl: {{boost.level}}</p>
+                            <p>+<span id="boost_power">{{boost.power}}</span></p>
+                            <p><span id="boost_price">{{boost.price}}</span></p>
+                        </button>
+                    {% endif %}
+                    {% if boost.boost_type == 1 %}
+                        <button class="boost auto" onclick="buy_boost({{boost.id}})">
+                            <p>lvl: {{boost.level}}</p>
+                            <p>+<span id="boost_power">{{boost.power}}</span></p>
+                            <p><span id="boost_price">{{boost.price}}</span></p>
+                        </button>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </aside>
+            <style>
+            body {
+              background-image: url( "{% static 'imgs/bg.jpg' %}");
+              background-size: 100%;
+                }
+          </style>
+    </main>
+
+</body>
+</html>
