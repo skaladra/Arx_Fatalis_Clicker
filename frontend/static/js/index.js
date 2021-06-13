@@ -13,7 +13,6 @@ window.onload = function () {
     })
 }
 
-
 function setAutoClick() {
     setInterval(function() {
         const power_node = document.getElementById('auto_click_power')
@@ -35,8 +34,7 @@ function call_click() {
         else return Promise.reject(response)
     }).then(data => {
         const counter = document.getElementById('counter')
-        counter.innerText = data.maincycle.click_count
-
+        counter.innerText = data.maincycle.click_count;  
         if (data.boosts) {
             update_boosts(data.boosts)
         }
@@ -51,6 +49,7 @@ function click_image() {
         image.style.cssText = ''
     }, 50)
 }
+
 
 
 function buy_boost(boost_id) {
@@ -72,6 +71,7 @@ function buy_boost(boost_id) {
         const click_count = document.getElementById('counter')
         const power = document.getElementById('click_power')
         const auto_power = document.getElementById('auto_click_power')
+
 
         click_count.innerText = data.maincycle.click_count
         power.innerText = data.maincycle.click_power
@@ -97,7 +97,8 @@ function add_boost(parent, boost) {
     const button = document.createElement('button')
     button.setAttribute('class', 'boost')
     if (boost.boost_type == 1)  button.setAttribute('class', 'boost auto')
-
+    if (boost.boost_type == 2)  button.setAttribute('class', 'boost auto2')
+    if (boost.boost_type == 3)  button.setAttribute('class', 'boost auto3')
     button.setAttribute('id', `boost_${boost.id}`)
     button.setAttribute('onclick', `buy_boost(${boost.id})`)
     button.innerHTML = `

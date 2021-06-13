@@ -31,12 +31,24 @@ def call_click(request):
 
     maincycle.save()
     if is_level_up == 1:
-        boost = models.Boost(mainCycle=maincycle, power=maincycle.level*20, price=maincycle.level*50)
+        boost = models.Boost(mainCycle=maincycle, power=maincycle.level*10, price=maincycle.level*15)
         boost.save()
 
         boosts = [BoostSerializer(boost).data for boost in maincycle.boost_set.all()]
     elif is_level_up == 2:
-        boost = models.Boost(mainCycle=maincycle, power=maincycle.level*10, price=maincycle.level*100, boost_type=1)
+        boost = models.Boost(mainCycle=maincycle, power=maincycle.level*15,price=maincycle.level*20, boost_type=1)
+        boost.save()
+
+        boosts = [BoostSerializer(boost).data for boost in maincycle.boost_set.all()]
+
+    elif is_level_up == 3:
+        boost = models.Boost(mainCycle=maincycle, price=maincycle.level*25, boost_type=2)
+        boost.save()
+
+        boosts = [BoostSerializer(boost).data for boost in maincycle.boost_set.all()]
+
+    elif is_level_up == 4:
+        boost = models.Boost(mainCycle=maincycle, power=maincycle.level*15, price=maincycle.level*7, boost_type=3)
         boost.save()
 
         boosts = [BoostSerializer(boost).data for boost in maincycle.boost_set.all()]

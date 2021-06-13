@@ -16,7 +16,11 @@ class MainCycle(models.Model):
         if self.click_count > self.count_level_price():
             self.level += 1
 
-            if self.level % 3 == 0:
+            if self.level % 4 == 0:
+                return 4
+            elif self.level % 3 == 0:
+                return 3
+            elif self.level % 2 == 0:
                 return 2
             return 1
         return False
@@ -43,8 +47,14 @@ class Boost(models.Model):
         self.power *= 2 
         self.price *= 5
 
-        if self.boost_type == 1:
+        if self.boost_type == 3:
             self.mainCycle.auto_click_power += self.power
+            self.price *= 5
+        elif self.boost_type == 2:
+            self.power = 0
+            self.price *= 6
+        elif self.boost_type == 1:
+            self.mainCycle.click_power += self.power
             self.price *= 5
         elif self.boost_type == 0:
             self.mainCycle.click_power += self.power

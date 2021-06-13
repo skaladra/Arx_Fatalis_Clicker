@@ -13,8 +13,6 @@
 <body>
     <main class="container">
         <audio id="audio">
-            <source id="audioMpeg" type="audio/mpeg">
-            <source id="audioOgg"  type="audio/ogg">
           </audio>
         <aside class="menu-container">
             <h1> Добро пожаловать в королевство гоблинов {{ user.username }}</h1>
@@ -38,12 +36,14 @@
                 САМОЦВЕТОВ В СЕКУНДУ
             </p>
         </div>
+        <audio id="audio3">
+        </audio>
         <aside class="boosts-container">
             <h3>ПРЕВЕЛЕКИЕ ГОБЛИНЫ</h3>
             <div class="boosts-holder" id="boosts-holder">
                 {% for boost in boosts %}
                     {% if boost.boost_type == 0 %}
-                        <button class="boost" onclick="buy_boost({{boost.id}})">
+                        <button id="boost" class="boost" onclick="buy_boost({{boost.id}});">
                             <p>lvl: {
                                 {boost.level}}</p>
                             <p>+<span id="boost_power">{{boost.power}}</span></p>
@@ -51,7 +51,23 @@
                         </button>
                     {% endif %}
                     {% if boost.boost_type == 1 %}
-                        <button class="boost auto" onclick="buy_boost({{boost.id}})">
+                        <button class="boost auto" onclick="buy_boost({{boost.id}});">
+                            <p>lvl: {{boost.level}}</p>
+                            <p>+<span id="boost_power">{{boost.power}}</span></p>
+                            <p><span id="boost_price">{{boost.price}}</span></p>
+                        </button>
+                    {% endif %}
+                    {% if boost.boost_type == 2 %}
+                        <button class="boost auto2" onclick="buy_boost({{boost.id}});">
+                            <audio id="audio3">
+                              </audio>
+                            <p>lvl: {{boost.level}}</p>
+                            <p><span id="boost_power">{{boost.power}}</span></p>
+                            <p><span id="boost_price">{{boost.price}}</span></p>
+                        </button>
+                    {% endif %}
+                    {% if boost.boost_type == 3 %}
+                        <button class="boost auto3" onclick="buy_boost({{boost.id}});">
                             <p>lvl: {{boost.level}}</p>
                             <p>+<span id="boost_power">{{boost.power}}</span></p>
                             <p><span id="boost_price">{{boost.price}}</span></p>

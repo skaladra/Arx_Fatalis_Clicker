@@ -66,9 +66,24 @@ body {
 
 .auto {
     background: rebeccapurple;
+    background-image: url('../imgs/boost2.png');
+    background-size: 100%;
+    color:wheat;
+}
+
+.auto2 {
+    background: rebeccapurple;
     background-image: url('../imgs/boost3.png');
     background-size: 100%;
-    color:wheat;}
+    color:wheat;
+}
+
+.auto3 {
+    background: rebeccapurple;
+    background-image: url('../imgs/trol.png');
+    background-size: 100%;
+    color:wheat;
+}
 
 .auto:disabled {
     color: slategray;
